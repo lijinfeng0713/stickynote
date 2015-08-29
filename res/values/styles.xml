@@ -1,0 +1,48 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:actionBarStyle">@style/my_actionbar_style</item>
+    </style>
+
+    <style name="my_actionbar_style" parent="@android:style/Widget.Holo.Light.ActionBar">
+    
+        <item name="android:background">#01BBD4</item>
+        <item name="android:height">70dp</item>
+    </style>
+    
+    <style name="btn_add_note">
+        <item name="android:background">@drawable/btn_add_selector</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:text">@string/btn_add</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="btn_confirm">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_confirm_selector</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="btn_cancel">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_confirm_selector</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+</resources>
