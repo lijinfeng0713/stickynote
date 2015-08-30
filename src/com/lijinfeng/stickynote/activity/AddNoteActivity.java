@@ -53,6 +53,9 @@ public class AddNoteActivity extends Activity implements OnClickListener {
 			SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd");       
 			Date curDate = new Date(System.currentTimeMillis());//获取当前时间       
 			time = formatter.format(curDate); 
+			if("".equals(title) || "".equals(content) ) {
+				return;
+			}
 			Note note =new Note (title,content,time);
 			noteDao.addNote(note);
 			Intent intent = new Intent();

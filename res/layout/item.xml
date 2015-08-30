@@ -1,37 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="4dip"
-    android:paddingLeft="12dip"
-    android:paddingRight="12dip" >
-
-    <ImageView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:paddingLeft="6dip"
-        android:paddingRight="6dip"
-        android:paddingTop="6dip" />
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dip"
-        android:textColor="#ccc"
-        android:textSize="18dip" />
-
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
-        android:maxLines="2"
-        android:paddingRight="20dip"
-        android:paddingLeft="16dip"
-        android:textColor="#fff" />
-
-</RelativeLayout>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:layout_marginLeft="@dimen/activity_horizontal_margin"
+       android:layout_marginRight="@dimen/activity_horizontal_margin"
+       android:layout_marginTop="@dimen/activity_vertical_margin"
+       android:background="#D3DED0" >
+       
+       <LinearLayout 
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:paddingTop="10dp"
+           android:paddingBottom="6dp"
+           android:background="@drawable/shape">
+	       <TextView 
+	           android:id="@+id/time"
+	           android:layout_width="fill_parent"
+	           android:layout_height="28dp"	           
+	           android:paddingLeft="16dp"
+               android:paddingRight="16dp"
+	           />
+	       <View 
+	           android:id="@+id/divider"
+	           android:layout_width="fill_parent"
+	           android:layout_height="1dp"
+	           android:paddingLeft="6dp"
+	           android:paddingRight="6dp"
+	           android:background="#DAD8D8"
+	           />
+	       <TextView 
+	           android:id="@+id/title"
+	           android:layout_width="fill_parent"
+	           android:layout_height="32dp"
+	           android:paddingLeft="16dp"
+               android:paddingRight="16dp"
+               android:gravity="center_vertical"
+	           android:text=""
+	           />
+	       <View 
+	           android:id="@+id/divider_02"
+	           android:layout_width="fill_parent"
+	           android:layout_height="1dp"
+	           android:layout_marginLeft="16dp"
+	           android:layout_marginRight="16dp"
+	           android:background="#DAD8D8"
+	           />
+	       <TextView 
+	           android:id="@+id/content"
+	           android:layout_width="fill_parent"
+	           android:layout_height="wrap_content"
+	           android:minHeight="60dp"
+	           android:paddingLeft="16dp"
+               android:paddingRight="16dp"
+	           android:text=""
+	           />
+	  </LinearLayout>
+	  <LinearLayout 
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:orientation="vertical"
+	       >
+	       <View 
+	          android:id="@+id/separator"
+	          android:layout_width="fill_parent"
+	          android:layout_height="16dp"
+	          android:background="#D3DED0"
+	          />
+	  </LinearLayout>    
+    </LinearLayout>
