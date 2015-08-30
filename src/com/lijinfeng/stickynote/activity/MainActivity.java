@@ -17,6 +17,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnCreateContextMenuListener;
@@ -49,9 +50,8 @@ public class MainActivity extends Activity implements OnClickListener{
 	     listItemAdapter = new SimpleAdapter(MainActivity.this,  
 	    		    listData,// 数据源  
 	                R.layout.item,// ListItem的XML实现  
-	                // 动态数组与ImageItem对应的子项  
+	                // 动态数组与item对应的子项  
 	                new String[] { "title", "content", "time" },  
-	                // ImageItem的XML文件里面的一个ImageView,两个TextView ID  
 	                new int[] { R.id.title, R.id.content, R.id.time });  
 	     list.setAdapter(listItemAdapter);
 	     list.setOnCreateContextMenuListener(listviewLongPress);  
@@ -84,7 +84,7 @@ public class MainActivity extends Activity implements OnClickListener{
                     /* 设置弹出窗口的图式 */  
                     .setIcon(android.R.drawable.ic_dialog_info)  
                     /* 设置弹出窗口的信息 */  
-                    .setMessage("确定删除当前记录")  
+                    .setMessage("确定删除当前记录？")  
                     .setPositiveButton("是",  
                             new DialogInterface.OnClickListener() {  
                                 public void onClick(  
@@ -119,4 +119,12 @@ public class MainActivity extends Activity implements OnClickListener{
         }  
     };
 
+//    @Override 
+//    public boolean onKeyDown(int keyCode, KeyEvent event) { 
+//        if (keyCode == KeyEvent.KEYCODE_BACK) { 
+//            this.finish(); 
+//            return true; 
+//        } 
+//        return super.onKeyDown(keyCode, event); 
+//    }  
 }

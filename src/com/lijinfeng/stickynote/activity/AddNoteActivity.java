@@ -18,6 +18,7 @@ import android.widget.EditText;
 
 public class AddNoteActivity extends Activity implements OnClickListener {
 
+	private NoteDao noteDao;
 	private Button btnConfirm = null;
 	private Button btnCancel = null;
 	private EditText editTitle = null;
@@ -25,14 +26,14 @@ public class AddNoteActivity extends Activity implements OnClickListener {
 	private String title;
 	private String content;
 	private String time;
-	private NoteDao noteDao;
-	
-	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_note);
+		
+		//main = new MainActivity();
+		
 		btnConfirm = (Button)findViewById(R.id.btn_confirm);
 		btnCancel = (Button)findViewById(R.id.btn_cancel);
 		editTitle = (EditText)findViewById(R.id.ed_title);
@@ -59,8 +60,10 @@ public class AddNoteActivity extends Activity implements OnClickListener {
 			Note note =new Note (title,content,time);
 			noteDao.addNote(note);
 			Intent intent = new Intent();
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			intent.setClass(AddNoteActivity.this,MainActivity.class);
 			startActivity(intent);
+			finish();
 			break;
 
 		default:
