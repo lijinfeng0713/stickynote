@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
         <activity 
-            android:name=".activity.AddNoteActivity">
+            android:name=".activity.AddNoteActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar">
             
         </activity>
     </application>

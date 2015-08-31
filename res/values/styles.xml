@@ -36,13 +36,16 @@
 
     <style name="btn_confirm">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/btn_confirm_selector</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:background">#01BBD4</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@drawable/btn_confirm_selector</item>
     </style>
     <style name="btn_cancel">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/btn_confirm_selector</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:background">#01BBD4</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@drawable/btn_confirm_selector</item>
     </style>
 </resources>

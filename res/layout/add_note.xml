@@ -1,17 +1,52 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"  
     tools:context="com.lijinfeng.stickynote.activity.MainActivity" 
     android:background="#FFFFFF">
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#01BBD4"
+        android:orientation="horizontal"
+        >
+        
+        <Button
+	        android:id="@+id/btn_cancel"
+	        style="@style/btn_cancel"
+	        android:layout_weight="1"
+	        android:layout_gravity="center"
+	        android:text="@string/btn_cancel"
+	        />
+        <TextView 
+            android:id="@+id/activity_title"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_weight="3"
+            android:paddingTop="6dp"
+            android:gravity="center"
+            android:text="@string/activity_title"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:background="#01BBD4"
+            />
+        <Button
+	        android:id="@+id/btn_confirm"
+	        style="@style/btn_confirm"
+	        android:layout_weight="1"
+	        android:layout_gravity="left"
+	        android:text="@string/btn_confirm"
+	        />
+        
+    </LinearLayout>
 
     <LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="86dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+	    android:paddingRight="@dimen/activity_horizontal_margin"
         android:orientation="vertical"
         >
         <EditText 
@@ -19,8 +54,10 @@
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:inputType="text"
-            android:editable="true"
+            android:cursorVisible="true"
             android:background="@null"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textColor="#000000"
             android:hint="@string/ed_title"
             />
         <TextView 
@@ -34,35 +71,14 @@
             android:layout_height="260dp"
             android:inputType="textMultiLine"
             android:gravity="left|top"
+            android:paddingTop="16dp"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@drawable/cursor_color"
             android:singleLine="false"
             android:background="@null"
+            android:textColor="#000000"
             android:hint="@string/ed_content"
             />
-    </LinearLayout>
-    <LinearLayout 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-	    android:layout_centerHorizontal="true"
-        >
-        <Button
-	        android:id="@+id/btn_confirm"
-	        style="@style/btn_confirm"
-	        android:layout_width="0dp"
-	        android:layout_weight="1"
-	        android:layout_marginRight="8dp"
-	        android:text="@string/btn_confirm"
-	        />
-        <Button
-	        android:id="@+id/btn_cancel"
-	        style="@style/btn_cancel"
-	        android:layout_width="0dp"
-	        android:layout_weight="1"
-	        android:layout_marginLeft="8dp"
-	        android:text="@string/btn_cancel"
-	        />
-        
     </LinearLayout>
     
 </RelativeLayout>
