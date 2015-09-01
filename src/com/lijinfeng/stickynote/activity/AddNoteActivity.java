@@ -2,12 +2,15 @@ package com.lijinfeng.stickynote.activity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 import com.lijinfeng.stickynote.R;
 import com.lijinfeng.stickynote.dao.NoteDao;
 import com.lijinfeng.stickynote.model.Note;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -15,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddNoteActivity extends Activity implements OnClickListener {
 
@@ -65,9 +69,47 @@ public class AddNoteActivity extends Activity implements OnClickListener {
 			startActivity(intent);
 			finish();
 			break;
+		
+		case R.id.btn_cancel:
+			if("".equals(editTitle.getText().toString()) && "".equals(editContent.getText().toString())) {
+				onBackPressed();
+			} else {
+				
+				new AlertDialog.Builder(AddNoteActivity.this)
+				/* 弹出窗口的最上头文字 */  
+	            .setTitle("提示")  
+	            /* 设置弹出窗口的图式 */  
+	            .setIcon(android.R.drawable.ic_dialog_info)  
+	            /* 设置弹出窗口的信息 */  
+	            .setMessage("确定放弃当前编辑内容？")  
+	            .setPositiveButton("是",  
+	                    new DialogInterface.OnClickListener() {  
+			            	public void onClick(  
+			                        DialogInterface dialoginterface, int i) {  
+			                    editTitle.setText("");
+			                    editContent.setText("");
+			                    onBackPressed();
+			                }  
+	                    })  
+	            .setNegativeButton("否",  
+	                    new DialogInterface.OnClickListener() {  
+	                        public void onClick(  
+	                                DialogInterface dialoginterface, int i) {  
+	                            // 什么也没做  
+
+	                        }  
+	                    }).show();  
+			}
+			
+			break;
 
 		default:
 			break;
 		}
 	}
+    @Override  
+    public void onBackPressed() {  
+        // do something what you want  
+        super.onBackPressed();  
+    }  
 }
