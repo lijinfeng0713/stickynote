@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.lijinfeng.stickynote.R;
+import com.lijinfeng.stickynote.custom.CustomDialog;
 import com.lijinfeng.stickynote.dao.NoteDao;
 
 import android.app.Activity;
@@ -78,44 +79,39 @@ public class MainActivity extends Activity implements OnClickListener{
                 ContextMenuInfo menuInfo) {  
             // TODO Auto-generated method stub  
             final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;  
-            new AlertDialog.Builder(MainActivity.this)  
-                    /* 弹出窗口的最上头文字 */  
-                    .setTitle("删除当前数据")  
-                    /* 设置弹出窗口的图式 */  
-                    .setIcon(android.R.drawable.ic_dialog_info)  
-                    /* 设置弹出窗口的信息 */  
-                    .setMessage("确定删除当前记录？")  
-                    .setPositiveButton("是",  
-                            new DialogInterface.OnClickListener() {  
-                                public void onClick(  
-                                        DialogInterface dialoginterface, int i) {  
-                                    // 获取位置索引  
-                                    int mListPos = info.position;  
-                                    // 获取对应HashMap数据内容  
-                                    HashMap<String, Object> map = listData  
-                                            .get(mListPos);  
-                                    // 获取id  
-                                    int id = Integer.valueOf((map.get("id")  
-                                            .toString()));  
-                                    // 获取数组具体值后,可以对数据进行相关的操作,例如更新数据  
-                                    if (noteDao.delete(id)) {  
-                                        // 移除listData的数据  
-                                        listData.remove(mListPos);  
-                                        listItemAdapter.notifyDataSetChanged();  
-                                    } else {
-                                    	 Toast.makeText(getApplicationContext(), "删除数据库失败",  
-                                                 Toast.LENGTH_LONG).show();  
-                                    }
-                                }  
-                            })  
-                    .setNegativeButton("否",  
-                            new DialogInterface.OnClickListener() {  
-                                public void onClick(  
-                                        DialogInterface dialoginterface, int i) {  
-                                    // 什么也没做  
   
-                                }  
-                            }).show();  
+            CustomDialog.Builder builder = new CustomDialog.Builder(MainActivity.this);
+			builder.setTitle("删除提示");
+			builder.setMessage("是否删除所选便利贴？");
+			builder.setPositiveButton("删除", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+					 int mListPos = info.position;  
+                   // 获取对应HashMap数据内容  
+                   HashMap<String, Object> map = listData  
+                           .get(mListPos);  
+                   // 获取id  
+                   int id = Integer.valueOf((map.get("id").toString()));  
+                   // 获取数组具体值后,可以对数据进行相关的操作,例如更新数据  
+                   if (noteDao.delete(id)) {  
+                       // 移除listData的数据  
+                       listData.remove(mListPos);  
+                       listItemAdapter.notifyDataSetChanged();  
+                   } else {
+                   	 Toast.makeText(getApplicationContext(), "删除数据库失败",  
+                                Toast.LENGTH_LONG).show();  
+                   }
+				}
+			});
+
+			builder.setNegativeButton("取消",
+					new android.content.DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+						}
+					});
+
+			builder.create().show();
         }  
     };
 

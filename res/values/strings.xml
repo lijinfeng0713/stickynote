@@ -11,5 +11,7 @@
     <string name="ed_title">标题</string>
     <string name="ed_content">内容</string>
     <string name="activity_title">新建便利贴</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
 
 </resources>
