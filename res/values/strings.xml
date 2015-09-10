@@ -7,9 +7,11 @@
     <string name="btn_add">+</string>
     <string name="btn_confirm">√</string>
     <string name="btn_cancel">×</string>
+    <string name="btn_back">←</string>
     <string name="ed_title">标题</string>
     <string name="ed_content">内容</string>
     <string name="activity_title">新建便利贴</string>
+    <string name="activity_details_title">便利贴</string>
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
     <string name="title_activity_details">DetailsActivity</string>

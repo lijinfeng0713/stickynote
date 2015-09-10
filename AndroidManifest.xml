@@ -27,8 +27,8 @@
             android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
-            android:name=".DetailsActivity"
-            android:label="@string/title_activity_details" >
+            android:name=".activity.DetailsActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
     </application>
 

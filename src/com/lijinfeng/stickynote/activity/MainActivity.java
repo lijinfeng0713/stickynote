@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnCreateContextMenuListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -31,6 +32,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity implements OnClickListener{
 
 	private Button btnAdd = null;
+	private ListView list;
 	SimpleAdapter listItemAdapter;
 	private NoteDao noteDao;
 	private SQLiteDatabase db;
@@ -47,7 +49,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		btnAdd = (Button)findViewById(R.id.btn_add_note);
 		btnAdd.setOnClickListener(this);
 		
-		 ListView list = (ListView) findViewById(R.id.list_items);  
+	    list = (ListView) findViewById(R.id.list_items);  
 	     listItemAdapter = new SimpleAdapter(MainActivity.this,  
 	    		    listData,// 数据源  
 	                R.layout.item,// ListItem的XML实现  
@@ -56,6 +58,23 @@ public class MainActivity extends Activity implements OnClickListener{
 	                new int[] { R.id.title, R.id.content, R.id.time });  
 	     list.setAdapter(listItemAdapter);
 	     list.setOnCreateContextMenuListener(listviewLongPress);  
+	     
+	     list.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				//int detailsId = (Integer) listData.get(position).get("id");
+				int detailsId = 1;
+//				Toast.makeText(getApplicationContext(), detailsId,  
+//                        Toast.LENGTH_LONG).show();
+				Intent detailsIntent =new Intent();
+				detailsIntent.putExtra("detailsId", detailsId);
+				detailsIntent.setClass(MainActivity.this,DetailsActivity.class);
+				startActivity(detailsIntent);
+			}
+		});
 	}
 
 	@Override
