@@ -48,7 +48,7 @@ public class NoteDao {
 	
 	 public ArrayList<HashMap<String, Object>> getAllData() {  
 		 db = helper.getWritableDatabase();
-         Cursor cursor = db.rawQuery("select * from " + "t_note", null);  
+         Cursor cursor = db.rawQuery("select * from " + "t_note " +"order by id desc", null);  
          int columnsSize = cursor.getColumnCount();  
          ArrayList<HashMap<String, Object>> listData = new ArrayList<HashMap<String, Object>>();  
          // 获取表的内容  

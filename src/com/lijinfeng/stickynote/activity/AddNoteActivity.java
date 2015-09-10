@@ -51,7 +51,7 @@ public class AddNoteActivity extends Activity implements OnClickListener {
 			noteDao = new NoteDao (this);
 			title = editTitle.getText().toString();
 			content = editContent.getText().toString();
-			SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd");       
+			SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");       
 			Date curDate = new Date(System.currentTimeMillis());//获取当前时间       
 			time = formatter.format(curDate); 
 			if("".equals(title) || "".equals(content) ) {
