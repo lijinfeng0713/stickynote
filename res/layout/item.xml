@@ -5,22 +5,32 @@
        android:orientation="vertical"
        android:layout_marginLeft="@dimen/activity_horizontal_margin"
        android:layout_marginRight="@dimen/activity_horizontal_margin"
-       android:layout_marginTop="@dimen/activity_vertical_margin"
        android:background="#D3DED0" >
        
        <LinearLayout 
            android:layout_width="fill_parent"
            android:layout_height="wrap_content"
            android:orientation="vertical"
-           android:paddingTop="10dp"
-           android:paddingBottom="6dp"
-           android:background="@drawable/shape">
+           android:background="@drawable/card_background">
 	       <TextView 
 	           android:id="@+id/time"
 	           android:layout_width="fill_parent"
-	           android:layout_height="28dp"	           
+	           android:layout_height="20dp"	 
+	           android:paddingTop="6dp"          
+	           android:paddingLeft="16dp"
+	           android:gravity="top|end"
+               android:paddingRight="16dp"
+               android:textSize="12sp"
+	           />
+	       <TextView 
+	           android:id="@+id/title"
+	           android:layout_width="fill_parent"
+	           android:layout_height="24dp"
 	           android:paddingLeft="16dp"
                android:paddingRight="16dp"
+               android:paddingBottom="6dp"
+               android:gravity="center_vertical"
+	           android:text=""
 	           />
 	       <View 
 	           android:id="@+id/divider"
@@ -31,27 +41,11 @@
 	           android:background="#DAD8D8"
 	           />
 	       <TextView 
-	           android:id="@+id/title"
-	           android:layout_width="fill_parent"
-	           android:layout_height="32dp"
-	           android:paddingLeft="16dp"
-               android:paddingRight="16dp"
-               android:gravity="center_vertical"
-	           android:text=""
-	           />
-	       <View 
-	           android:id="@+id/divider_02"
-	           android:layout_width="fill_parent"
-	           android:layout_height="1dp"
-	           android:layout_marginLeft="16dp"
-	           android:layout_marginRight="16dp"
-	           android:background="#DAD8D8"
-	           />
-	       <TextView 
 	           android:id="@+id/content"
 	           android:layout_width="fill_parent"
 	           android:layout_height="wrap_content"
 	           android:minHeight="60dp"
+	           android:paddingTop="6dp"
 	           android:paddingLeft="16dp"
                android:paddingRight="16dp"
 	           android:text=""
