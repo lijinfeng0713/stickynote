@@ -65,10 +65,8 @@ public class MainActivity extends Activity implements OnClickListener{
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				//int detailsId = (Integer) listData.get(position).get("id");
-				int detailsId = 1;
-//				Toast.makeText(getApplicationContext(), detailsId,  
-//                        Toast.LENGTH_LONG).show();
+				String detailsId = (String) listData.get(position).get("id");
+				
 				Intent detailsIntent =new Intent();
 				detailsIntent.putExtra("detailsId", detailsId);
 				detailsIntent.setClass(MainActivity.this,DetailsActivity.class);
