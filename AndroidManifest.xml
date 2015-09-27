@@ -30,6 +30,11 @@
             android:name=".activity.DetailsActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
+        <activity
+            android:name=".activity.SearchActivity"
+            android:theme="@style/AppTheme" >
+        </activity>
+  
     </application>
 
 </manifest>

@@ -3,9 +3,24 @@
     tools:context="com.lijinfeng.stickynote.MainActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_within_week"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="@string/action_within_week"/>
+    <item
+        android:id="@+id/action_within_month"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_within_month"/>
+    <item
+        android:id="@+id/action_all"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_all"/>
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_about"/>
 
 </menu>

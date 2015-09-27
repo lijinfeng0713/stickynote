@@ -1,6 +1,8 @@
 package com.lijinfeng.stickynote.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import com.lijinfeng.stickynote.model.Note;
@@ -49,6 +51,35 @@ public class NoteDao {
 	 public ArrayList<HashMap<String, Object>> getAllData() {  
 		 db = helper.getWritableDatabase();
          Cursor cursor = db.rawQuery("select * from " + "t_note " +"order by id desc", null);  
+         int columnsSize = cursor.getColumnCount();  
+         ArrayList<HashMap<String, Object>> listData = new ArrayList<HashMap<String, Object>>();  
+         // 获取表的内容  
+         while (cursor.moveToNext()) {  
+             HashMap<String, Object> map = new HashMap<String, Object>();  
+             for (int i = 0; i < columnsSize; i++) {  
+                 map.put("id", cursor.getString(0));  
+                 map.put("title", cursor.getString(1));  
+                 map.put("content", cursor.getString(2));  
+                 map.put("time", cursor.getString(3));  
+             }  
+             listData.add(map);  
+         }  
+         return listData;
+     }  
+	 
+	 /**
+	  * 功能：根据时间段查询数据
+	  * @param fromTime
+	  * @return
+	  */
+	 public ArrayList<HashMap<String, Object>> getDataByCondition(String fromTime) {  
+		 
+		 SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");       
+		 Date curDate = new Date(System.currentTimeMillis());//获取当前时间       
+		 String toTime = formatter.format(curDate); 
+		 
+		 db = helper.getWritableDatabase();
+         Cursor cursor = db.rawQuery("select * from t_note where time between '"+fromTime+"' and '"+toTime+"' order by id desc", null);  
          int columnsSize = cursor.getColumnCount();  
          ArrayList<HashMap<String, Object>> listData = new ArrayList<HashMap<String, Object>>();  
          // 获取表的内容  

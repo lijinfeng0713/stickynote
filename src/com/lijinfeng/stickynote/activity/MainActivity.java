@@ -6,6 +6,7 @@ import java.util.HashMap;
 import com.lijinfeng.stickynote.R;
 import com.lijinfeng.stickynote.custom.CustomDialog;
 import com.lijinfeng.stickynote.dao.NoteDao;
+import com.lijinfeng.stickynote.util.GetLastDateTime;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -19,6 +20,8 @@ import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnCreateContextMenuListener;
@@ -131,5 +134,47 @@ public class MainActivity extends Activity implements OnClickListener{
 			builder.create().show();
         }  
     };
+    
+    
+    @Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		GetLastDateTime getLastDateTime = new GetLastDateTime();
+		if (id == R.id.action_within_week) {
+			String fromTime = getLastDateTime.lastWeek();
+			Intent intent = new Intent();
+			intent.putExtra("fromTime", fromTime);
+			intent.setClass(MainActivity.this, SearchActivity.class);
+			startActivity(intent);
+			return true;
+		}
+		if (id == R.id.action_within_month) {
+			String fromTime = getLastDateTime.lastMonth();
+			Intent intent = new Intent();
+			intent.putExtra("fromTime", fromTime);
+			intent.setClass(MainActivity.this, SearchActivity.class);
+			startActivity(intent);
+			return true;
+		}
+		if (id == R.id.action_all) {
+			String fromTime = "all";
+			Intent intent = new Intent();
+			intent.putExtra("fromTime", fromTime);
+			intent.setClass(MainActivity.this, SearchActivity.class);
+			startActivity(intent);
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
 
 }
