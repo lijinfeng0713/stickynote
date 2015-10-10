@@ -149,27 +149,26 @@ public class MainActivity extends Activity implements OnClickListener{
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		GetLastDateTime getLastDateTime = new GetLastDateTime();
 		if (id == R.id.action_within_week) {
-			String fromTime = getLastDateTime.lastWeek();
+			String condition = "within_week";
 			Intent intent = new Intent();
-			intent.putExtra("fromTime", fromTime);
+			intent.putExtra("condition", condition);
 			intent.setClass(MainActivity.this, SearchActivity.class);
 			startActivity(intent);
 			return true;
 		}
 		if (id == R.id.action_within_month) {
-			String fromTime = getLastDateTime.lastMonth();
+			String condition = "within_month";
 			Intent intent = new Intent();
-			intent.putExtra("fromTime", fromTime);
+			intent.putExtra("condition", condition);
 			intent.setClass(MainActivity.this, SearchActivity.class);
 			startActivity(intent);
 			return true;
 		}
 		if (id == R.id.action_all) {
-			String fromTime = "all";
+			String condition = "all";
 			Intent intent = new Intent();
-			intent.putExtra("fromTime", fromTime);
+			intent.putExtra("condition", condition);
 			intent.setClass(MainActivity.this, SearchActivity.class);
 			startActivity(intent);
 			return true;

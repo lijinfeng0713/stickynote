@@ -4,9 +4,9 @@
     <string name="app_name">便利贴</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="action_within_week">一周以内</string>
-    <string name="action_within_month">一月以内</string>
-    <string name="action_all">所有</string>
+    <string name="action_within_week">最近一周</string>
+    <string name="action_within_month">最近一月</string>
+    <string name="action_all">查看全部</string>
     <string name="action_about">关于</string>
     <string name="btn_add">+</string>
     <string name="btn_confirm">√</string>
