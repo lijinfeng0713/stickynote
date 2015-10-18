@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lijinfeng.stickynote.activity.DetailsActivity"
     android:background="#FFFFFF" >
 
     <LinearLayout 
@@ -10,34 +9,34 @@
         android:layout_height="70dp"
         android:background="#01BBD4"
         android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         >
         
         <Button
 	        android:id="@+id/btn_back"
-	        style="@style/btn_back"
+	        style="@style/btn_back_qq"
 	        android:layout_weight="1"
 	        android:layout_gravity="center"
-	        android:text="@string/btn_back"
 	        />
         
         <TextView 
             android:id="@+id/activity_details_title"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
-            android:layout_weight="3"
+            android:layout_weight="5"
             android:paddingTop="6dp"
             android:gravity="center"
             android:text="@string/activity_details_title"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:background="#01BBD4"
             />
         <Button
 	        android:id="@+id/details_confirm"
-	        style="@style/btn_confirm"
+	        style="@style/btn_confirm_qq"
 	        android:layout_weight="1"
-	        android:layout_gravity="left"
-	        android:text="@string/btn_confirm"
+	        android:layout_gravity="center_vertical"
 	        />
         
     </LinearLayout>
